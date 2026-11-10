@@ -1,0 +1,4 @@
+node_modules/
+dist/
+_wix/
+.DS_Store
