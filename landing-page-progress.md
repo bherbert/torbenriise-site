@@ -50,10 +50,14 @@ Start with: *"Continue landing page development — read `landing-page-progress.
 - `build.mjs` embeds every sample into `dist/index.html` as a `<template>`, so the window works even when the page is opened straight from the folder (file://). After editing a sample, run `npm run build` (or preview `src/` with `npm run dev`).
 - The Mac copy at `~/Desktop/landing-page` is now the source of truth.
 
-### Phase 3 — Deployment ⏳
+### Phase 3 — Deployment ⏳ (started 2026-11-10)
 
-- Host not chosen yet (GitHub Pages / Netlify / Vercel). See `docs/deployment-guide.md`.
-- Domain currently on Wix; plan DNS move + old-URL redirects.
+- Domain: torbenriise.com is registered **at Wix** (Wix DNS, ns2/ns3.wixdns.net), paid through 2027-09-04. Torben's email is Gmail, so no mail records depend on Wix.
+- Repo: **https://github.com/bherbert/torbenriise-site** — **private**, `main` pushed (creating it public was blocked; making it public is Brant's call).
+- Local repo pushes over HTTPS using the `gh` login (repo-local credential helper). The Mac's SSH key for GitHub is broken (private/public key mismatch), and a Keychain login for another account answers first otherwise.
+- `.github/workflows/deploy.yml` (build + publish to Pages) exists locally but is **not pushed**: the gh token lacks the `workflow` scope. Fix: `gh auth refresh -h github.com -s workflow`, then remove the line from `.git/info/exclude`, `git add` the file, commit and push.
+- GitHub Pages on a private repo needs a paid plan (Pro/Team); on a free plan the repo must be public. Alternative: Netlify/Vercel can deploy a private repo for free.
+- Still to do: enable Pages (or another host), review at the temporary URL, then point Wix DNS at it (or transfer the domain), HTTPS, redirect old Wix URLs, cancel the Wix site plan.
 
 ## Open questions for Torben
 
