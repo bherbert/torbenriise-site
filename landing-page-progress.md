@@ -53,11 +53,10 @@ Start with: *"Continue landing page development — read `landing-page-progress.
 ### Phase 3 — Deployment ⏳ (started 2026-11-10)
 
 - Domain: torbenriise.com is registered **at Wix** (Wix DNS, ns2/ns3.wixdns.net), paid through 2027-09-04. Torben's email is Gmail, so no mail records depend on Wix.
-- Repo: **https://github.com/bherbert/torbenriise-site** — **private**, `main` pushed (creating it public was blocked; making it public is Brant's call).
-- Local repo pushes over HTTPS using the `gh` login (repo-local credential helper). The Mac's SSH key for GitHub is broken (private/public key mismatch), and a Keychain login for another account answers first otherwise.
-- `.github/workflows/deploy.yml` (build + publish to Pages) exists locally but is **not pushed**: the gh token lacks the `workflow` scope. Fix: `gh auth refresh -h github.com -s workflow`, then remove the line from `.git/info/exclude`, `git add` the file, commit and push.
-- GitHub Pages on a private repo needs a paid plan (Pro/Team); on a free plan the repo must be public. Alternative: Netlify/Vercel can deploy a private repo for free.
-- Still to do: enable Pages (or another host), review at the temporary URL, then point Wix DNS at it (or transfer the domain), HTTPS, redirect old Wix URLs, cancel the Wix site plan.
+- Repo: **https://github.com/bherbert/torbenriise-site** — **public** (made public 2026-11-10 at Brant's request).
+- **Live for review: https://bherbert.github.io/torbenriise-site/** — GitHub Pages via `.github/workflows/deploy.yml`; every push to `main` rebuilds and republishes (~1–2 min). Verified: 29/29 images, audio, sample windows.
+- Local repo pushes over HTTPS using the `gh` login (repo-local credential helper). The Mac's SSH key for GitHub is broken (private/public key mismatch), and a Keychain login for another account answers first otherwise. gh token now has the `workflow` scope.
+- Still to do: review at the temporary URL (replace or hide the sample-chapter notes first), then point Wix DNS at it (or transfer the domain), HTTPS, redirect old Wix URLs, cancel the Wix site plan.
 
 ## Open questions for Torben
 
